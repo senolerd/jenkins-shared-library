@@ -1,12 +1,15 @@
 void call() {
 
     // ToDo: Change hard coded image name to variable
+        // FROM docker.io/library/eclipse-temurin:17-jre-jammy
+
+
     sh '''
         cd target
         JAR_FILE=$(ls *.jar)
 
         cat <<-EOF > Containerfile
-        FROM docker.io/library/eclipse-temurin:17-jre-jammy
+        FROM $BUILD_IMG
         WORKDIR /app
         COPY $JAR_FILE .
         CMD java -jar $JAR_FILE
