@@ -1,5 +1,5 @@
 void call() {
-    echo "APP_VER: $APP_VER"
+    echo "APP_VER: ${env.APP_VER}"
     // echo "env.APP_VER: ${env.APP_VER}"
     // echo "JOB_NAME: ${JOB_NAME}"
     // echo "MAVEN_IMG: ${MAVEN_IMG}"
