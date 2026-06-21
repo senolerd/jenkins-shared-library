@@ -1,9 +1,4 @@
 void call() {
-
-    // ToDo: Change hard coded image name to variable
-        // FROM docker.io/library/eclipse-temurin:17-jre-jammy
-
-
     sh '''
         cd target
         JAR_FILE=$(ls *.jar)
