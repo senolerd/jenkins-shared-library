@@ -7,6 +7,7 @@ void call() {
     env.APP_VER = sh(script:"podman run --rm -it -v jenkins_home:/app -w /app/workspace/${JOB_DIR} ${MAVEN_IMG} ls -al", returnStdout: true)
 
     echo "JOB_NAME: ${JOB_NAME}"
+    echo "JOB_DIR: ${JOB_DIR}"
     echo "MAVEN_IMG: ${MAVEN_IMG}"
     sh "echo Env:"
     sh 'printenv'
