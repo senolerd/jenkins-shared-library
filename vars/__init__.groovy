@@ -5,6 +5,7 @@ void call() {
     // env.APP_VER = sh(script:"podman run --rm -v jenkins_home:/app -w /app/workspace/${JOB_NAME} ${MAVEN_IMG} mvn help:evaluate -Dexpression=project.version -q -DforceStdout", returnStdout: true).trim()
     echo "PWD"
     env.APP_VER = sh(script:"podman run --rm -v jenkins_home:/app -w /app/workspace/${JOB_NAME} ${MAVEN_IMG} pwd", returnStdout: true)
-
+    sh 'echo APP_VER: $APP_VER'
+    sh 'echo emv.APP_VER: ${env.APP_VER}'
     // sh 'echo "[__init__] APP version is (after): ${env.APPVER}"'
 }
