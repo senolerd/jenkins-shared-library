@@ -3,5 +3,5 @@ void call() {
     // becomes a valid path. Single pipeline checkouts to "/app/workspace/$JOB_NAME", no branch name!
     echo 'JSL Initialing...'
     env.APP_VER = sh(script:"podman run --rm -v jenkins_home:/app -w /app/workspace/${JOB_NAME} ${MAVEN_IMG} mvn help:evaluate -Dexpression=project.version -q -DforceStdout", returnStdout: true).trim()
-    echo "[__init__] APP version is (after): ${APPVER}"
+    echo "[__init__] APP version is (after): ${env.APPVER}"
 }
