@@ -4,8 +4,7 @@ void call() {
     echo 'JSL Initialing...'
     // env.APP_VER = sh(script:"podman run --rm -v jenkins_home:/app -w /app/workspace/${JOB_NAME} ${MAVEN_IMG} mvn help:evaluate -Dexpression=project.version -q -DforceStdout", returnStdout: true).trim()
     echo "PWD"
-    env.APP_VER = sh(script:"podman run --rm -v jenkins_home:/app -w /app/workspace/${JOB_NAME} ${MAVEN_IMG} pwd", returnStdout: true)
-    sh 'echo APP_VER: $APP_VER'
-    echo "emv.APP_VER: ${env.APP_VER}"
+    env.APP_VER = sh(script:"podman run --rm -it -v jenkins_home:/app -w /app/workspace/${JOB_NAME} ${MAVEN_IMG} ls -al", returnStdout: true)
+
     // sh 'echo "[__init__] APP version is (after): ${env.APPVER}"'
 }
