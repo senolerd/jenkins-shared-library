@@ -4,8 +4,7 @@ void call(String cmdStr) {
 
     withEnv(["CMD=${cmdStr}"]) {
         withCredentials([usernamePassword(credentialsId: 'aws_devops-user-1_access_k_id_and_key', passwordVariable: 'AWS_KEY', usernameVariable: 'AWS_KID')]) {
-            def result = sh(script:  '''
-                podman run -i --rm  \
+                int result = sh(script:  '''
                 -e AWS_ACCESS_KEY_ID=$AWS_KID \
                 -e AWS_SECRET_ACCESS_KEY=$AWS_KEY \
                 -e AWS_DEFAULT_REGION=$AWS_REGION \
@@ -13,7 +12,7 @@ void call(String cmdStr) {
             ''', returnStatus: true )
 
             if (result == 0) {
-                echo "[ OK ] '${cmdStr} is run."
+                echo "[ OK ] '${cmdStr}' is run."
             } else if (result == 252) {
                 echo "[ Error${result} ] '${cmdStr}' has command structure mistake."
             } else if (result == 254) {
