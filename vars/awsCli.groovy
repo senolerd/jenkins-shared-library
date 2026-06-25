@@ -18,7 +18,7 @@ void call(String cmdStr) {
             } else if (result == 254) {
                 echo "[ Error${result} ] '${cmdStr}' command is run, but resource has problem."
             } else {
-                echo "[ Fail??? ] '${cmdStr}' something went wrong with this command."
+                echo "[ Error${result} ] '${cmdStr}' something went wrong with this command."
             }
 
             return result
