@@ -9,7 +9,8 @@ void call(String cmdStr) {
                 -e AWS_ACCESS_KEY_ID=$AWS_KID \
                 -e AWS_SECRET_ACCESS_KEY=$AWS_KEY \
                 -e AWS_DEFAULT_REGION=$AWS_REGION \
-                docker.io/amazon/aws-cli $CMD 
+                docker.io/amazon/aws-cli $CMD
+                
                 # docker.io/amazon/aws-cli $CMD > /dev/null 2>&1
                 ''', returnStatus: true )
 
