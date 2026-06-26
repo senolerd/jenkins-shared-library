@@ -9,6 +9,7 @@ void call() {
         COPY $JAR_FILE .
         CMD java -jar $JAR_FILE
     '''
+    String tag = "$ECR_REPO/java-maven:$APP_VER"
 
     sh """
         cd target
@@ -16,7 +17,8 @@ void call() {
         cat Containerfile
         echo "=================================="
         echo "======[ ${env.APP_VER} ]==============="
-        podman build -t "$ECR_REPO/java-maven:${env.APP_VER}" .
+        
+        podman build -t ${tag} .
         mv Containerfile ../
     """
 }
