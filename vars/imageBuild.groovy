@@ -12,7 +12,7 @@ void call() {
 
     sh """
         cd target
-        podman build -t $DEST_REPO/java-maven:${APP_VER} .
+        podman build -t $ECR_REPO/java-maven:${APP_VER} .
         mv Containerfile ../
     """
 }
