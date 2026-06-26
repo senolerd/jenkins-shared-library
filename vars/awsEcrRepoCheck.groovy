@@ -15,7 +15,7 @@ void call(repoName) {
             -e AWS_ACCESS_KEY_ID=$AWS_KID \
             -e AWS_SECRET_ACCESS_KEY=$AWS_KEY \
             -e AWS_DEFAULT_REGION=$AWS_REGION \
-            docker.io/amazon/aws-cli ecr describe-repositories --repository-name ${AWS_PROJECT_NAME.toLowerCase()} --query repositories[].repositoryUri --output text
+            docker.io/amazon/aws-cli ecr describe-repositories --repository-name ${repoName} --query repositories[].repositoryUri --output text
             ''', returnStdout: true)
     }
 }
