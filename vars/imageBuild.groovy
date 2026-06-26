@@ -16,7 +16,7 @@ CMD java -jar $JAR_FILE
         cat Containerfile
         echo "=================================="
         echo "======[ ${env.APP_VER} ]===============" 
-        (podman build -t ${ECR_REPO}/${AWS_PROJECT_NAME.toLowerCase()}:${APP_VER} .)
+        (podman build -t test/${AWS_PROJECT_NAME.toLowerCase()}:${APP_VER} .)
         mv Containerfile ../
     """
 }
