@@ -18,7 +18,7 @@ void call() {
         echo "=================================="
         echo "======[ ${env.APP_VER} ]==============="
         
-        podman build -t ${ECR_REPO}/${AWS_PROJECT_NAME.toLowerCase()}:${APP_VER} .
+        podman build -t ${ECR_REPO}/${AWS_PROJECT_NAME.toLowerCase()}:${APP_VER} . 
         mv Containerfile ../
     """
 }
