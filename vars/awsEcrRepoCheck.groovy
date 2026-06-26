@@ -20,5 +20,6 @@ void call(repoName) {
                 ''', returnStdout: true).trim()
         }
             env.DEST_CONTAINER_REGISTRY = env.DEST_CONTAINER_REPO.split("/")[0]
+            echo "DEST_CONTAINER_REGISTRY: ${env.DEST_CONTAINER_REGISTRY}"
     }
 }
