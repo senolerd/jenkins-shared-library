@@ -17,7 +17,7 @@ CMD java -jar $JAR_FILE
         echo "DEST_CONTAINER_REPO: ${DEST_CONTAINER_REPO}"
         echo "loverProjectName: ${loverProjectName}"
         echo "APP_VER: ${APP_VER}"
-        podman build -t ${DEST_CONTAINER_REPO}/${loverProjectName}:${APP_VER} .
+        podman build -t ${DEST_CONTAINER_REGISTRY}/${loverProjectName}:${APP_VER} .
         mv Containerfile ../
     """
 }
