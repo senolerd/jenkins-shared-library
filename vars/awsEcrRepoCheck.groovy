@@ -17,7 +17,7 @@ void call(repoName) {
                 -e AWS_SECRET_ACCESS_KEY=$AWS_KEY \
                 -e AWS_DEFAULT_REGION=$AWS_REGION \
                 docker.io/amazon/aws-cli ecr describe-repositories --repository-name $repoName --query repositories[].repositoryUri --output text
-                ''', returnStdout: true)
+                ''', returnStdout: true).trim()
         }
     }
 }
