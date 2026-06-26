@@ -19,6 +19,6 @@ void call(repoName) {
                 docker.io/amazon/aws-cli ecr describe-repositories --repository-name $repoName --query repositories[].repositoryUri --output text
                 ''', returnStdout: true).trim()
         }
-            env.DEST_CONTAINER_REGISTRY = ${env.DEST_CONTAINER_REPO}.split("/")[0]
+            // env.DEST_CONTAINER_REGISTRY = ${env.DEST_CONTAINER_REPO}.split("/")[0]
     }
 }
