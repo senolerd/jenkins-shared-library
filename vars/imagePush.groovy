@@ -14,6 +14,8 @@ void call() {
     // Affer the image pushed successfully update codebase version to next minor with -SNAPSHOT
     // updateApplicationVersion()
 
+    echo "[[[     REGISTRY AT: ${DEST_CONTAINER_REGISTRY}  ]]]"
+
     if (DEST_CONTAINER_REGISTRY.endsWith("amazon.com")){
         echo "IMAGE WILL BE PUSHED TO ECR"
     } else if (DEST_CONTAINER_REGISTRY.endsWith("docker.io")){
