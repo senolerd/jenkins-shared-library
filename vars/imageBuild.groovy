@@ -16,7 +16,7 @@ void call() {
         cat Containerfile
         echo "=================================="
         echo "======[ ${env.APP_VER} ]==============="
-        podman build -t $ECR_REPO/java-maven:${env.APP_VER} .
+        podman build -t "$ECR_REPO/java-maven:${env.APP_VER}" .
         mv Containerfile ../
     """
 }
