@@ -17,7 +17,7 @@ void call() {
     echo "[[[     REGISTRY: ${DEST_CONTAINER_REGISTRY}  ]]]"
     echo "[[[     REGISTRY endsWith amazom.com' ${DEST_CONTAINER_REGISTRY.endsWith('amazon.com')}  ]]]"
 
-    if (DEST_CONTAINER_REGISTRY.endsWith("amazon.com")){
+    if (DEST_CONTAINER_REGISTRY.endsWith("amazonaws.com")){
         echo "IMAGE WILL BE PUSHED TO ECR"
     } else if (DEST_CONTAINER_REGISTRY.endsWith("docker.io")){
         echo "IMAGE WILL BE PUSHED TO DOCKER"
