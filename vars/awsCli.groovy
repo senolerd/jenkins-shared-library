@@ -3,14 +3,14 @@ void call(String cmdStr) {
     // While creating this credential, chosing "Treat username as secret" at the Username will mask the username as well, which is good.
 
     withEnv(["CMD=${cmdStr}"]) {
-        withCredentials([usernamePassword(credentialsId: 'aws_devops-user-1_access_k_id_and_key', passwordVariable: 'AWS_KEY', usernameVariable: 'AWS_KID')]) {
+        withCredentials([usernamePassword(credentialsId: env.AWS_CLI_CRED_ID, passwordVariable: 'AWS_KEY', usernameVariable: 'AWS_KID')]) {
             int result = sh(script:  '''
                 podman run --rm \
                 -e AWS_ACCESS_KEY_ID=$AWS_KID \
                 -e AWS_SECRET_ACCESS_KEY=$AWS_KEY \
                 -e AWS_DEFAULT_REGION=$AWS_REGION \
                 docker.io/amazon/aws-cli $CMD
-                
+
                 # docker.io/amazon/aws-cli $CMD > /dev/null 2>&1
                 ''', returnStatus: true )
 
@@ -23,11 +23,8 @@ void call(String cmdStr) {
             } else {
                 echo "[ Error${result} ] '${cmdStr}' something went wrong with this command."
             }
-            
+
             return result
         }
     }
 }
-
-// return 254, command is run, resource has problem. (like the resource exist with the same name or someting)
-// return 252, Command isn't run. )
