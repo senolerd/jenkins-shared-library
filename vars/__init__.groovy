@@ -4,7 +4,7 @@ void call() {
     echo 'Initialing...'
     env.JOB_DIR = env.JOB_NAME.replace("/","_")
 
-    env.APP_VER = sh(script:"""podman run --rm -v jenkins_home:/app  -v dot_m2_repository:/root/.m2/reposiroty \
+    env.APP_VER = sh(script:"""podman run --rm -v jenkins_home:/app \
     -w /app/workspace/${JOB_DIR} -v dot_m2_reposiroty:/root/.m2/reposiroty \
     ${MAVEN_IMG} mvn help:evaluate -Dexpression=project.version -q -DforceStdout""", returnStdout: true).trim()
 
