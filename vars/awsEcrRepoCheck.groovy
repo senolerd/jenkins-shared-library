@@ -1,6 +1,7 @@
 void call(repoName) {
-    // Checks projects AWS ECR repo. If doens't exist, creates it.
-    // String repoName = "${AWS_PROJECT_NAME.toLowerCase()}"
+
+    // Checking ECR repo, if there isn't for the project it will be created.
+    // The ECR repo address will be accessable via emv.ECR_REPO at further stage and steps.
 
     if ( awsCli("ecr describe-repositories --repository-name ${repoName}") != 0) {
         awsCli("ecr create-repository --repository-name ${repoName}")

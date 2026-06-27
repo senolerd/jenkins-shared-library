@@ -4,6 +4,7 @@ void call() {
 
     sh '''
         aws ecr get-login-password --region us-east-1 | podman login --username AWS --password-stdin ${DEST_CONTAINER_REGISTRY}
+        podman push ${DEST_CONTAINER_REPO}:${APP_VER}
     '''
 
 
