@@ -16,3 +16,4 @@ void call() {
         '''
     }
 }
+env.AWS_CLI_CRED_ID
