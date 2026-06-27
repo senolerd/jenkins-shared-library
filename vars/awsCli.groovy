@@ -23,7 +23,7 @@ void call(String cmdStr) {
             } else {
                 echo "[ Error${result} ] '${cmdStr}' something went wrong with this command."
             }
-
+            
             return result
         }
     }
