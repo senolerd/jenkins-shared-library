@@ -16,9 +16,9 @@ void call() {
 
     echo "[[[     REGISTRY AT: ${DEST_CONTAINER_REGISTRY}  ]]]"
 
-    if (DEST_CONTAINER_REGISTRY.endsWith("amazon.com")){
+    if (${DEST_CONTAINER_REGISTRY}.endsWith("amazon.com")){
         echo "IMAGE WILL BE PUSHED TO ECR"
-    } else if (DEST_CONTAINER_REGISTRY.endsWith("docker.io")){
+    } else if (${DEST_CONTAINER_REGISTRY}.endsWith("docker.io")){
         echo "IMAGE WILL BE PUSHED TO DOCKER"
     } else {
         echo "IMAGE PUSHER DOESN'T KNOW HOW TO PUSH TO THIS REGISTRY"
