@@ -3,7 +3,10 @@ void call() {
     // becomes a valid path. Single pipeline checkouts to "/app/workspace/$JOB_NAME", no branch name!
     echo 'Initialing...'
     env.APP_VER = getAppVersion()
-    env.JOB_DIR = env.JOB_NAME.replace('/', '_')
+
+    echo "env.JOB_NAME: ${env.JOB_NAME}"
+    
+    // env.JOB_DIR = env.JOB_NAME.replace('/', '_')
 
     echo "[__init__] The application version being worked on, env.APP_VER: ${env.APP_VER}. "
 }
