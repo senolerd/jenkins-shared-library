@@ -14,7 +14,8 @@ void call() {
     // Affer the image pushed successfully update codebase version to next minor with -SNAPSHOT
     // updateApplicationVersion()
 
-    echo "[[[     REGISTRY AT ${DEST_CONTAINER_REGISTRY.endsWith('amazon.com')}  ]]]"
+    echo "[[[     REGISTRY: ${DEST_CONTAINER_REGISTRY}  ]]]"
+    echo "[[[     REGISTRY endsWith amazom.com' ${DEST_CONTAINER_REGISTRY.endsWith('amazon.com')}  ]]]"
 
     if (DEST_CONTAINER_REGISTRY.endsWith("amazon.com")){
         echo "IMAGE WILL BE PUSHED TO ECR"
