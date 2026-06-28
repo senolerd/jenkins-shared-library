@@ -1,6 +1,5 @@
 void call() {
-
-    incrementVersion()
+    // Pushes version updated pom.xml to repo
     sh """
         git config user.name "Jenkins Build Bot"
         git config user.email "jenkins@local"
