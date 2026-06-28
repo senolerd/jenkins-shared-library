@@ -4,7 +4,7 @@ void call() {
         git config user.name "Jenkins Build Bot"
         git config user.email "jenkins@local"
         git add pom.xml
-        git commit -m "[ci] Updating version to next minor (${APP_VER} => ${getProjectVersion()})"
+        git commit -m "[ci] Updating version to next minor (${APP_VER} => ${getAppVersion()})"
     """
 
     withCredentials([string(credentialsId: env.GITHUB_CRED_ID, variable: 'GITHUB_TOKEN')]) {
