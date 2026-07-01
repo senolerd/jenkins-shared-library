@@ -3,10 +3,9 @@ void call() {
     // becomes a valid path. Single pipeline checkouts to "/app/workspace/$JOB_NAME", no branch name!
     echo 'Initialing...'
 
-    env.APP_VER = getAppVersion()
+    env.APP_VER = getMavenAppVersion()
 
     echo "env.JOB_NAME: ${env.JOB_NAME}"
-
     echo "env.APP_VER: ${env.APP_VER}"
 }
 
