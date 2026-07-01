@@ -11,7 +11,7 @@ void call() {
                 -e AWS_DEFAULT_REGION=$AWS_REGION docker.io/amazon/aws-cli sts get-caller-identity --query Account --output text)
 
                 echo "AWS_ACCOUNT_ID: ${AWS_ACCOUNT_ID}"
-                DEST_CONTAINER_REGISTRY="https://$AWS_ACCOUNT_ID.dkr.ecr.${AWS_REGION}.amazonaws.com"
+                DEST_CONTAINER_REGISTRY="$AWS_ACCOUNT_ID.dkr.ecr.${AWS_REGION}.amazonaws.com"
                 
                 echo "DEST_CONTAINER_REGISTRY: ${DEST_CONTAINER_REGISTRY}"
 
