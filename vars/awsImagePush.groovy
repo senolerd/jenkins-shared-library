@@ -15,12 +15,14 @@ void call() {
                 
                 echo "DEST_CONTAINER_REGISTRY: ${DEST_CONTAINER_REGISTRY}"
 
-
                 echo "Login to ECR"
                 (podman run --rm -e AWS_ACCESS_KEY_ID=$AWS_KID -e AWS_SECRET_ACCESS_KEY=$AWS_KEY \
                 -e AWS_DEFAULT_REGION=$AWS_REGION docker.io/amazon/aws-cli ecr get-login-password --region ${AWS_REGION})| \
                 (podman login --username AWS --password-stdin $DEST_CONTAINER_REGISTRY)
 
+
+                echo "Tag image for AWS ECR"
+                podman tag ${lovercaseAppName}:${APP_VER} $DEST_CONTAINER_REGISTRY/${lovercaseAppName}:${APP_VER}
 
                 echo "Pushing image to ECR: $DEST_CONTAINER_REGISTRY/${lovercaseAppName}:${APP_VER}"
                 podman push $DEST_CONTAINER_REGISTRY/${lovercaseAppName}:${APP_VER}

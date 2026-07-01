@@ -14,7 +14,7 @@ CMD java -jar $JAR_FILE
 
     sh """
         cd target
-        podman build -t ${DEST_CONTAINER_REGISTRY}/${lovercaseAppName}:${APP_VER} .
+        podman build -t ${lovercaseAppName}:${APP_VER} .
         podman image prune -f
         mv Containerfile ../
     """
