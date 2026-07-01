@@ -16,7 +16,7 @@ void call() {
             env.ECR_REGISTRY = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
             echo "ECR_REGISTRY: ${ECR_REGISTRY}"
 
-            awsCli("ecr describe-repositories --repository-names ${lovercaseAppName} || aws ecr create-repository --repository-name ${lovercaseAppName}")
+            awsCli("ecr create-repository --repository-name ${lovercaseAppName}")
             // ecr create-repository --repository-name your-repo-name --region your-region
 
             sh'''
