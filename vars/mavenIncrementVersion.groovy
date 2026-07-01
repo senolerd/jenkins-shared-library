@@ -5,4 +5,5 @@ void call() {
         -v dot_m2_repository:/root/.m2/repository:Z $MAVEN_IMG \
         mvn build-helper:parse-version versions:set -q -DnewVersion='\$'{parsedVersion.majorVersion}.'\$'{parsedVersion.nextMinorVersion}.0-SNAPSHOT versions:commit
     '''
+    env.APP_NEXT_VER = mavenGetAppVersion()
 }
