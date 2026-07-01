@@ -13,7 +13,7 @@ void call() {
                 ''', returnStdout: true).trim()
 
             echo "AWS_ACCOUNT_ID: ${AWS_ACCOUNT_ID}"
-            env.ECR_REGISTRY = "$AWS_ACCOUNT_ID.dkr.ecr.${AWS_REGION}.amazonaws.com"
+            env.ECR_REGISTRY = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
             echo "ECR_REGISTRY: ${ECR_REGISTRY}"
 
             awsCli("ecr describe-repositories --repository-names ${lovercaseAppName} || aws ecr create-repository --repository-name ${lovercaseAppName}")
