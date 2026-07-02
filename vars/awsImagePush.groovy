@@ -26,7 +26,6 @@ void call() {
                 -e AWS_DEFAULT_REGION=$AWS_REGION docker.io/amazon/aws-cli ecr get-login-password --region ${AWS_REGION})| \
                 (podman login --username AWS --password-stdin $ECR_REGISTRY)
 
-
                 echo "Tag image for AWS ECR"
                 podman tag ${lovercaseAppName}:${APP_VER} $ECR_REGISTRY/${lovercaseAppName}:${APP_VER}
 
